@@ -1,18 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="business-cards">
+        <h2>Business cards</h2>
+        <CreateBc/>
+        <div>
+            <template v-for="bc in $store.state.bc">
+              <Bc :bc="bc" id="bc"/>
+            </template>
+        </div>
+    </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CreateBc from '@/components/CreateBc.vue'
+import Bc from '@/components/Bc.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    components:{
+      Bc,
+      CreateBc,
+    }
 }
 </script>
